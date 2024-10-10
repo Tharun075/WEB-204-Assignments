@@ -1,0 +1,63 @@
+<html>
+    <title>
+        Detailed Explaination
+    </title>
+    <head>
+        <style>
+            table{
+                border: black;
+                width: 100%;
+            }
+            th,td{
+                border-style: double;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th style="font-weight: bold;">Product Name</th>
+                <th style="font-weight: bold;">Quantity</th>
+                <th style="font-weight: bold;">Price per Unit</th>
+                <th style="font-weight: bold;">Description</th>
+                <th style="font-weight: bold;">Total Price</th>
+            </tr>
+            <tr>
+                <td>Product 1</th>
+                <td id="quantity1">2</th>
+                <td id="price1">10</th>
+                <td>This is product 1</th>
+                <td id="total1">0.00</th>
+            </tr>
+            <tr>
+                <td>Product 2</th>
+                <td id="quantity2">3</th>
+                <td id="price2">20</th>
+                <td>This is product 2</th>
+                <td id="total2">0.00</th>
+            </tr>
+            <tr>
+                <td colspan="4">Sum</td>
+                <td id="grandTotal">0.00</td>
+            </tr>
+        </table>
+        <script>
+            function calcTotal() {
+                for (let i = 1; i <= 2; i++) {
+                    let price = parseFloat(document.getElementById(`price${i}`).textContent) || 0;
+                    let quantity = parseFloat(document.getElementById(`quantity${i}`).textContent) || 0;
+                    let total = price * quantity;
+
+                    document.getElementById(`total${i}`).textContent = total.toFixed(2);
+                }
+
+                let grandTotal = 0;
+                for (let i = 1; i <= 2; i++) {
+                    grandTotal += parseFloat(document.getElementById(`total${i}`).textContent) || 0;
+                }
+                document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+            }
+            calcTotal();
+        </script>
+    </body>
+</html>
