@@ -1,9 +1,114 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>HTML Form</title>
-    </head>
-    <body>
-        
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback and Registration Form</title>
+    <style>
+        body {
+            background-color: rgb(240, 240, 240);
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        h2, h3 {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="number"],
+        input[type="email"],
+        input[type="password"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .checkbox-label {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>User Feedback</h2>
+        <form id="feedback-form">
+            <label for="feedback-type">Feedback Type:</label>
+            <select id="feedback-type" name="feedback-type" required>
+                <option value="">Select feedback type</option>
+                <option value="comment">Comment</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="issue">Report an Issue</option>
+            </select>
+            
+            <label for="user-input">Your Feedback:</label>
+            <textarea id="user-input" name="user-input" rows="4" required placeholder="Type your feedback here"></textarea>
+            
+            <h3>Website Rating:</h3>
+            <label>
+                <input type="radio" name="rating" value="1" required> 1
+            </label>
+            <label>
+                <input type="radio" name="rating" value="2"> 2
+            </label>
+            <label>
+                <input type="radio" name="rating" value="3"> 3
+            </label>
+            <label>
+                <input type="radio" name="rating" value="4"> 4
+            </label>
+            <label>
+                <input type="radio" name="rating" value="5"> 5
+            </label>
+        </form>
+
+        <h3>User Registration</h3>
+        <form id="user-registration">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="10" max="100" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="website">Website URL (optional):</label>
+            <input type="url" id="website" name="website">
+
+            <label class="checkbox-label">
+                <input type="checkbox" id="terms" name="terms" required>
+                I accept the Terms and Conditions
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
 </html>
